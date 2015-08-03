@@ -1,7 +1,0 @@
-upstream tvbar_localhost {
-	server 58.215.169.147:8094;
-	keepalive 32;
-}
-
-
-include /data/services/nginx_vhost/tvbar.yy.com.conf.common;

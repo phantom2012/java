@@ -1,1 +1,0 @@
-function getUrlParam(a){var b=new RegExp("(^|\\?|&)"+a+"=([^&]*)(\\s|&|$)","i");if(b.test(location.href)){return unescape(RegExp.$2.replace(/\+/g," "))}return""};

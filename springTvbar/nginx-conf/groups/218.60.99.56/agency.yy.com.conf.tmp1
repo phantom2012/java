@@ -1,6 +1,0 @@
-upstream agency_localhost {
-	server 116.31.121.223:8089;
-	keepalive 32;
-}
-
-include /data/services/nginx_vhost/agency.yy.com.conf.common;
