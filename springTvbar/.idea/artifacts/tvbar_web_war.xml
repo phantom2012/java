@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="tvbar-web:war">
+    <output-path>$PROJECT_DIR$/tvbar-web/target</output-path>
+    <root id="archive" name="tvbar.war">
+      <element id="artifact" artifact-name="tvbar-web:war exploded" />
+    </root>
+  </artifact>
+</component>

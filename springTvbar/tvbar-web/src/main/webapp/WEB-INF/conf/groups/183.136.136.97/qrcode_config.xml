@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment></comment>
+    <entry key="visit_url_prefix">images/qrcode/</entry>
+    <entry key="dest_path">/data/webapps/static.idol.yy.com/images/qrcode/</entry>
+    <entry key="url">http://idol.yy.com/agency/mobile/mobilehome.action</entry>
+    <entry key="img_width">214</entry>
+    <entry key="img_height">260</entry>
+</properties>

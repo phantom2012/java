@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>YY登录</title>
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="手机特权">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <style>
+    .emstyle {
+        text-align:center;
+        margin:0 auto;
+        overflow: hidden;
+        width:100%;
+        z-index:3;
+        height:320px;
+    }
+    /*.emstyle iframe{width:320px;height: 300px;}*/
+    #udbsdk_login_content .udbsdk_frm {
+        padding-top: 30px; 
+        width: 100%;
+        height: 320px;
+        background:transparent;
+    }
+    html {
+        background:-webkit-gradient(linear, 0 0, 0 100%, from(#A0D3FA), to(#fff));
+        background-repeat: no-repeat;
+        position:relative;
+    }
+    html, body {
+        /*background-color: #eff3f5;*/
+        padding: 0;
+        margin: 0;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+    }
+    .wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .logo-ctn {
+        text-align: center;
+        margin-top:40px;
+        z-index:2;
+    }
+    .logo {
+        width:75px;
+        height:75px;
+    }
+    .bottom-bg {
+        width:100%;
+        position:absolute;
+        bottom:0;
+        left:0;
+        z-index:1;
+        text-align:center;
+        height:86px;
+    }
+    .bottom-bg img {
+        height:86px;
+        width:auto;
+    }
+    </style>
+    <script type="text/javascript">
+    var SITEURL = window.location.href.substring(0, window.location.href.indexOf("/", 8) + 1);
+    /*
+                window.onload = function(){
+                        return
+                        $('.bottom-bg').css({
+                            position:'absolute',
+                            bottom:0,
+                            left:0
+                        }).css({
+                            'border':'1px solid red'
+                        })
+                        $('html').css({
+                            'border':'1px solid red'
+                        })
+                }
+                */
+    </script>
+</head>
+
+<body>
+    <!--
+            <div id="udbsdk_login_content" style="height: 500px;"></div>
+            -->
+
+    <div class="wrapper" style="padding-left: 0px;">
+        <div class="logo-ctn">
+            <img class="logo" src="http://tq.dwstatic.com/front/tequan/touch/images/yy.png?max_age=31104000&v=201401020"></img>
+        </div>
+        <div id="udbsdk_login_content" class="emstyle"></div>
+    </div>
+    <div class="bottom-bg">
+        <!--<img src="http://tq.dwstatic.com/front/tequan/touch/images/hill.png?max_age=31104000&v=201401020"></img>-->
+    </div>
+
+
+    <script type="text/javascript" src="http://res.udb.duowan.com/js/jquery-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="http://res.udb.duowan.com/lgn/js/oauth/udbsdk/mweb/udb.sdk.mweb.embed.min.js"></script>
+    <!--
+            <script type="text/javascript" src="http://res.udb.duowan.com/js/oauth/udbsdk/eslogin/udb.sdk.eslogin.all.min.js"></script>
+            -->
+    <script src="http://res2.idol.yystatic.com/mobile/js/login.js"></script>
+    <script type="text/javascript">
+    UDB.sdk.MWeb.docReady(bbsLogin.init);
+    </script>
+</body>
+
+</html>
+<!-- from php -->

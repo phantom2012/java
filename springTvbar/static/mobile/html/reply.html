@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+	<title>话题回复</title>
+    <link rel="stylesheet" href="http://static.tvbar.yy.com/mobile/css/main.css">
+	<link rel="stylesheet" href="http://static.tvbar.yy.com/mobile/css/post.css"> 
+
+
+</head>
+<body>
+	<header id="header">
+		<div id="reply-head">
+		<div class="cancel-btn"></div>
+		<div class="title">话题回复</div>
+			<div class="right-btn">发布</div>
+		</div>
+		<div id="viewpoint-head" style="display: none;">
+			<div class="goback-btn" id="goback"></div>
+			<div class="title">话题回复</div>
+			<div class="right-btn" id="vpSubmit">确定</div>
+		</div>
+	</header><!-- /header -->
+	<section id="replyContent">
+		<section id="topic-reply">
+			<div class="item-con">
+				<input type="text" class="viewpoint" id="viewpointIpt"  placeholder="一句话表达你的观点">
+			</div>
+			<div id="topic-desc-con">
+				<div class="item-con upload">
+					<textarea  class="topic-desc-area" placeholder="输入简短的话题描述" maxlength="70"></textarea>
+					<div class="upload-img">
+						<div class="img"></div>
+						<form><input type="file" name="pic" class="upload-btn" accept="image/*"></form>
+					</div>
+					<div class="delete-img">删除图片</div>
+				</div>
+			</div>
+			<div class="add-btn" id="add-btn">添加</div>
+		</section>
+	</section>
+	<section id="viewpointContent" style="display: none;">
+		<section id="topic-post">
+			<div class="item-con">
+				<input type="text" class="viewpoint" id="viewpointIpt2"  placeholder="" maxlength="13" autofocus>
+			</div>
+			<div id="viewpoint-list">
+				<p>或赞同现有观点</p>
+				<ul>
+					<li><span class="radio"></span><span>a、</span><span>《蜘蛛侠》：能力越大，责任越大</span></li>
+					<li><span class="radio"></span><span>b、</span><span>能力越大,责任越大</span></li>
+					<li><span class="radio"></span><span>c、</span><span>1部里面真真恶心的能力越大.</span></li>
+					<li><span class="radio"></span><span>d、</span><span>蜘蛛侠的心仪女友挺丑的</span></li>
+				</ul>
+			</div>
+		</section>
+	</section>
+	<div id="uploadLoading"><span class="loadingicon"></span></div>
+</body>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/reply.js"></script>
+
+</html>

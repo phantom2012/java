@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: music.external.interface.webdb:webdb:1.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/webdb/1.2/webdb-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/webdb/1.2/webdb-1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/webdb/1.2/webdb-1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

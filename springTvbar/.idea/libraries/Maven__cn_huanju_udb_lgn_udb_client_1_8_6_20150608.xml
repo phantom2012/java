@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.huanju.udb.lgn:udb-client:1.8.6-20150608">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/huanju/udb/lgn/udb-client/1.8.6-20150608/udb-client-1.8.6-20150608.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/huanju/udb/lgn/udb-client/1.8.6-20150608/udb-client-1.8.6-20150608-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/huanju/udb/lgn/udb-client/1.8.6-20150608/udb-client-1.8.6-20150608-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

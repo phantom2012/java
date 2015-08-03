@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<cherroot>
+    <scanPackage>com.yy.ent.tvbar.common.model,com.yy.ent.tvbar.common.model.info</scanPackage>
+    <!-- 数据库对应的表的包路径 -->
+    <halb-proxy>false</halb-proxy>
+    <!-- 测试环境，请大家自行设置 pwd-encrypt="false",默认是true 线上需要设置为true -->
+    <datasource-mapping selected="true" default="true" pwd-encrypt="false">
+        <datasource>
+            <index>0</index>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://116.31.122.23:3306/tvbar</url>
+            <user>tvbar</user>
+            <password>duowan</password>
+            <maxActive>100</maxActive>
+            <minIdle>10</minIdle>
+            <maxIdle>50</maxIdle>
+        </datasource>
+        <!--<datasource>-->
+            <!--<index>0</index>-->
+            <!--<driver>com.mysql.jdbc.Driver</driver>-->
+            <!--<url>jdbc:mysql://58.215.169.148:3306/tvbar</url>-->
+            <!--<user>root</user>-->
+            <!--<password>duowan</password>-->
+            <!--<maxActive>200</maxActive>-->
+            <!--<minIdle>10</minIdle>-->
+            <!--<maxIdle>50</maxIdle>-->
+        <!--</datasource>-->
+        <!--<datasource>-->
+            <!--<index>1</index>-->
+            <!--<driver>com.mysql.jdbc.Driver</driver>-->
+            <!--<url>jdbc:mysql://192.168.0.5:3306/tvbar</url>-->
+            <!--<user>root</user>-->
+            <!--<password>libiao</password>-->
+            <!--<maxActive>100</maxActive>-->
+            <!--<minIdle>10</minIdle>-->
+            <!--<maxIdle>50</maxIdle>-->
+        <!--</datasource>-->
+        <!-- <datasource>
+            <index>2</index>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://113.108.231.185:6303/agency</url>
+            <user>yymz</user>
+            <password>duowan</password>
+            <maxActive>100</maxActive>
+            <minIdle>10</minIdle>
+            <maxIdle>50</maxIdle>
+        </datasource>
+        <datasource>
+            <index>3</index>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://113.108.231.185:6303/agency</url>
+            <user>yymz</user>
+            <password>duowan</password>
+            <maxActive>100</maxActive>
+            <minIdle>10</minIdle>
+            <maxIdle>50</maxIdle>
+        </datasource>
+        <datasource>
+            <index>4</index>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://113.108.231.185:6303/agency</url>
+            <user>yymz</user>
+            <password>duowan</password>
+            <maxActive>100</maxActive>
+            <minIdle>10</minIdle>
+            <maxIdle>50</maxIdle>
+        </datasource>
+        <datasource>
+            <index>5</index>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://113.108.231.185:6303/agency</url>
+            <user>yymz</user>
+            <password>duowan</password>
+            <maxActive>100</maxActive>
+            <minIdle>10</minIdle>
+            <maxIdle>50</maxIdle>
+        </datasource> -->
+    </datasource-mapping>
+</cherroot>

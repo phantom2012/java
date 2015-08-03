@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: music.external.interface.webdb:libthrift:0.9.0-snapshot">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/libthrift/0.9.0-snapshot/libthrift-0.9.0-snapshot.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/libthrift/0.9.0-snapshot/libthrift-0.9.0-snapshot-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/music/external/interface/webdb/libthrift/0.9.0-snapshot/libthrift-0.9.0-snapshot-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

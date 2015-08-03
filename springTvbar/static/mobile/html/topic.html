@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <link rel="stylesheet" href="http://static.tvbar.yy.com/mobile/css/style.css">
+    <title>剧吧-帖子详情</title>
+<body class="topicPage">
+    <header id="header">
+        <div class="goback-btn"></div>
+        <div class="title">话题</div>
+        <div class="right-icon-user"></div>
+    </header><!-- /header -->
+    <section id="post-details">
+        <div class="prom-ctn">
+            <div class="pormer">
+                <div class="pic"><img src="http://ued.yypm.com/50x50"></div>
+                <div class="p-time">
+                    <h6>天生丽人</h6>
+                    <p>01月12日 08:45</p>
+                </div>
+            </div>
+            <div class="p-info">
+                <h3>1部里面真真恶心的能力越大，责任也就越大</h3>
+                <p>喜欢SPIDER-MAN就是因为他是个做着英雄事迹的平凡小年青,不过电影里似乎着墨更多的是打斗,而其实1的打斗感觉也一般.总体来说人物刻画不如自己的期待.......</p>
+                <p><img src="http://ued.yypm.com/600x400" /></p>
+                 <p>喜欢SPIDER-MAN就是因为他是个做着英雄事迹的平凡小年青,不过电影里似乎着墨更多的是打斗,而其实1的打斗感觉也一般.总体来说人物刻画不如自己的期待.......</p>
+                <p><img src="http://ued.yypm.com/600x400" /></p>
+                 <p>喜欢SPIDER-MAN就是因为他是个做着英雄事迹的平凡小年青,不过电影里似乎着墨更多的是打斗,而其实1的打斗感觉也一般.总体来说人物刻画不如自己的期待.......</p>
+                <p><img src="http://ued.yypm.com/600x400" /></p>
+                 <p>喜欢SPIDER-MAN就是因为他是个做着英雄事迹的平凡小年青,不过电影里似乎着墨更多的是打斗,而其实1的打斗感觉也一般.总体来说人物刻画不如自己的期待.......</p>
+                <p><img src="http://ued.yypm.com/600x400" /></p>
+                 <p>喜欢SPIDER-MAN就是因为他是个做着英雄事迹的平凡小年青,不过电影里似乎着墨更多的是打斗,而其实1的打斗感觉也一般.总体来说人物刻画不如自己的期待.......</p>
+                <p><img src="http://ued.yypm.com/600x400" /></p>
+            </div>
+        </div>
+        <div class="btoolbar"><a href="">添加回复</a></div>
+        <!--  -->
+    </section>
+    <div class="load"></div>
+    <div class="laodError" style="text-align:center;font-size:1.2rem;height:25px;line-height:25px;display:none;">网络加载失败，请检查网络！</div>
+</body>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript">
+   
+var moreReply = true;
+var pageUrl = window.location.search;
+function loadReply(){
+    $.ajax({
+        type : "get",
+        url : "/static/topicData.json",
+        dataType : "json",
+        timeout: 10000,
+        success : function(json){
+            $(".load").hide();
+            var data = json.data;
+            var dataLen = data.evidences.length;
+            if(dataLen > 0){
+                for(var i = 0; i < dataLen; i++){
+                    var _html = '<p>'+ data.evidences[i].description +'</p><p><img src="'+ data.evidences[i].handlePic +'"/></p>';
+                    $(".p-info").append(_html);
+                }
+            }else{
+                $(window).unbind('scroll');
+            }
+        },
+        error:function(){
+            $(".load").hide();
+            $(".laodError").show();
+        }
+    });
+}
+$(window).bind("scroll", function() {
+    var top = $(document.body).scrollTop();
+    var bh = $(document.body).height();
+    var dh = $(document).height();
+    var wh = $(window).height();
+    var halfWh = wh/2;
+    if (top + wh + 52 > (dh-halfWh) && moreReply) {
+        loadReply();
+        $(".load").show();
+    }
+});
+</script>
+</html>

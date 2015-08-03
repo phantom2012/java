@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/tvbar.iml" filepath="$PROJECT_DIR$/tvbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tvbar-common/tvbar-common.iml" filepath="$PROJECT_DIR$/tvbar-common/tvbar-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tvbar-dao/tvbar-dao.iml" filepath="$PROJECT_DIR$/tvbar-dao/tvbar-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tvbar-service/tvbar-service.iml" filepath="$PROJECT_DIR$/tvbar-service/tvbar-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tvbar-web/tvbar-web.iml" filepath="$PROJECT_DIR$/tvbar-web/tvbar-web.iml" />
+    </modules>
+  </component>
+</project>
