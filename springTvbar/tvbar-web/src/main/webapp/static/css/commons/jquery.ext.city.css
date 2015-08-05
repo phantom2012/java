@@ -1,0 +1,101 @@
+@CHARSET "UTF-8";
+
+.city-main * {
+	padding: 0;
+	margin: 0;
+}
+
+.city-main a {
+	text-decoration: none;
+	color: #4D4D4D;
+}
+
+.city-main {
+	width: 301px;
+	position: absolute;
+	background: #fff;
+}
+
+.city-main a.current {
+	color: #f60;
+}
+
+.city-tab {
+	height: 30px;
+}
+
+.city-tab a {
+	width: 149px;
+	heigth: 28px;
+	text-align: center;
+	background: #f0f0f0;
+	line-height: 28px;
+	border: 1px solid #ccc;
+	margin-right: -1px;
+	float: left
+}
+
+.city-tab a.current {
+	background: #fff;
+	border-bottom: none;
+}
+
+.city-privince {
+	width: 299px;
+	border: 1px solid #ccc;
+	border-top: none;
+	float: left;
+	margin-top: -1px;
+}
+
+.city-privince dl, .city-city dl {
+	padding: 5px 0;
+}
+
+.city-privince dt, .city-city dt {
+	float: left;
+	width: 15%;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 0;
+}
+
+.city-privince dd, .city-city dd {
+	float: left;
+	width: 85%;
+}
+
+.city-privince dd a, .city-city dd a {
+	float: left;
+	padding: 5px 5px;
+}
+
+.city-privince dl:after, .city-city dl:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.city-main dd a:hover {
+	background-color: #fff8f3;
+	color: #f60;
+}
+
+.city-city {
+	width: 299px;
+	border: 1px solid #ccc;
+	border-top: none;
+	float: left;
+	margin-top: -1px;
+}
+
+.city-city dl {
+	padding: 5px 5px;
+}
+
+.city-city dd {
+	width: 100%;
+}

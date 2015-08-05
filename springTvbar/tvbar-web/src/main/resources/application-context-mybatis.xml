@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd"
+       default-lazy-init="true">
+
+    <bean id="whistleDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://${whistle.jdbc.host}:${whistle.jdbc.port}/${whistle.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>
+        <property name="username" value="${whistle.jdbc.username}"/>
+        <property name="password" value="${whistle.jdbc.password}"/>
+        <property name="maxActive" value="100"/>
+        <property name="maxIdle" value="100"/>
+        <property name="maxWait" value="5000"/>
+        <property name="defaultAutoCommit" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="validationQuery" value="select 1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="22000"/>
+        <property name="minEvictableIdleTimeMillis" value="20000"/>
+        <property name="numTestsPerEvictionRun" value="3"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="150"/>
+        <property name="logAbandoned" value="true"/>
+
+    </bean>
+
+    <bean id="whistleSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="whistleDataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath*:sqlmappers/**/*Mapper.xml"/>
+        <property name="typeAliasesPackage" value="com.yy.ent.tvbar.common.model.domain"/>
+    </bean>
+
+    <bean id="whistleMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.yy.ent.tvbar.dao.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="whistleSqlSessionFactory"/>
+    </bean>
+
+    <!--<bean id="whistleAdminDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://${whistleAdmin.jdbc.host}:${whistleAdmin.jdbc.port}/${whistleAdmin.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>-->
+        <!--<property name="username" value="${whistleAdmin.jdbc.username}"/>-->
+        <!--<property name="password" value="${whistleAdmin.jdbc.password}"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--<property name="maxIdle" value="100"/>-->
+        <!--<property name="maxWait" value="5000"/>-->
+        <!--<property name="defaultAutoCommit" value="true"/>-->
+        <!--<property name="testOnBorrow" value="true"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="validationQuery" value="select 1"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="22000"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="20000"/>-->
+        <!--<property name="numTestsPerEvictionRun" value="3"/>-->
+        <!--<property name="removeAbandoned" value="true"/>-->
+        <!--<property name="removeAbandonedTimeout" value="150"/>-->
+        <!--<property name="logAbandoned" value="true"/>-->
+
+    <!--</bean>-->
+    <!--<bean id="whistleAdminSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="whistleAdminDataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:sqlmappers/*Mapper.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.yy.ent.tvbar.common.model.domain"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="whistleAdminMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.yy.ent.tvbar.dao.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="whistleAdminSqlSessionFactory"/>-->
+    <!--</bean>-->
+
+<!--bss begin-->
+    <!--<bean id="whistleBssDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://${whistleBss.jdbc.host}:${whistleBss.jdbc.port}/${whistleBss.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>-->
+        <!--<property name="username" value="${whistleBss.jdbc.username}"/>-->
+        <!--<property name="password" value="${whistleBss.jdbc.password}"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--<property name="maxIdle" value="100"/>-->
+        <!--<property name="maxWait" value="5000"/>-->
+        <!--<property name="defaultAutoCommit" value="true"/>-->
+        <!--<property name="testOnBorrow" value="true"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="validationQuery" value="select 1"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="22000"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="20000"/>-->
+        <!--<property name="numTestsPerEvictionRun" value="3"/>-->
+        <!--<property name="removeAbandoned" value="true"/>-->
+        <!--<property name="removeAbandonedTimeout" value="150"/>-->
+        <!--<property name="logAbandoned" value="true"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean id="whistleBssSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="whistleBssDataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:sqlmappers/*Mapper.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.yy.ent.whistle.admin.persist.model"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="whistleBssMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.yy.ent.tvbar.dao.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="whistleBssSqlSessionFactory"/>-->
+    <!--</bean>-->
+<!--bss end-->
+<!--group begin-->
+    <!--<bean id="whistleGroupDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://${whistleGroup.jdbc.host}:${whistleGroup.jdbc.port}/${whistleGroup.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>-->
+        <!--<property name="username" value="${whistleGroup.jdbc.username}"/>-->
+        <!--<property name="password" value="${whistleGroup.jdbc.password}"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--<property name="maxIdle" value="100"/>-->
+        <!--<property name="maxWait" value="5000"/>-->
+        <!--<property name="defaultAutoCommit" value="true"/>-->
+        <!--<property name="testOnBorrow" value="true"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="validationQuery" value="select 1"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="22000"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="20000"/>-->
+        <!--<property name="numTestsPerEvictionRun" value="3"/>-->
+        <!--<property name="removeAbandoned" value="true"/>-->
+        <!--<property name="removeAbandonedTimeout" value="150"/>-->
+        <!--<property name="logAbandoned" value="true"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean id="whistleGroupSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="whistleGroupDataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:sqlmappers/group/**/*Mapper.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.yy.ent.whistle.admin.persist.model"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="whistleGroupMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.yy.ent.whistle.group.persist.mapper,com.yy.ent.whistle.admin.dao.persist.mapper.group"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="whistleGroupSqlSessionFactory"/>-->
+    <!--</bean>-->
+<!--group end-->
+    <!--security begin-->
+    <!--<bean id="whistleSecurityDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://${whistleSecurity.jdbc.host}:${whistleSecurity.jdbc.port}/${whistleSecurity.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>-->
+        <!--<property name="username" value="${whistleSecurity.jdbc.username}"/>-->
+        <!--<property name="password" value="${whistleSecurity.jdbc.password}"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--<property name="maxIdle" value="100"/>-->
+        <!--<property name="maxWait" value="5000"/>-->
+        <!--<property name="defaultAutoCommit" value="true"/>-->
+        <!--<property name="testOnBorrow" value="true"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="validationQuery" value="select 1"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="22000"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="20000"/>-->
+        <!--<property name="numTestsPerEvictionRun" value="3"/>-->
+        <!--<property name="removeAbandoned" value="true"/>-->
+        <!--<property name="removeAbandonedTimeout" value="150"/>-->
+        <!--<property name="logAbandoned" value="true"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean id="whistleSecuritySqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="whistleSecurityDataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:sqlmappers/UserMapper.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.yy.ent.whistle.security.persist.model"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="whistleSecurityMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.yy.ent.whistle.security.persist.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="whistleSecuritySqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!--security end-->
+    <!--spread begin-->
+    <!--<bean id="whistleSpreadDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url"-->
+                  <!--value="jdbc:mysql://${whistleSpread.jdbc.host}:${whistleSpread.jdbc.port}/${whistleSpread.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"/>-->
+        <!--<property name="username" value="${whistleSpread.jdbc.username}"/>-->
+        <!--<property name="password" value="${whistleSpread.jdbc.password}"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--<property name="maxIdle" value="100"/>-->
+        <!--<property name="maxWait" value="5000"/>-->
+        <!--<property name="defaultAutoCommit" value="true"/>-->
+        <!--<property name="testOnBorrow" value="true"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="validationQuery" value="select 1"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="22000"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="20000"/>-->
+        <!--<property name="numTestsPerEvictionRun" value="3"/>-->
+        <!--<property name="removeAbandoned" value="true"/>-->
+        <!--<property name="removeAbandonedTimeout" value="150"/>-->
+        <!--<property name="logAbandoned" value="true"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean id="whistleSpreadSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="whistleSpreadDataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:sqlmappers/**/*Mapper.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.yy.ent.whistle.spread.persist.model"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="whistleSpreadMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.yy.ent.whistle.spread.persist.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="whistleSpreadSqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!--spread end-->
+</beans>

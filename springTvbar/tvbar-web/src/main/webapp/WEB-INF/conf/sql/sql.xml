@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>所有多表操作sql,key名称不能变</comment>
+	<!--初始化行锁work_id=0 -->
+	<entry key="IfNotExistLockTraceLineInsert">
+		replace into pushworks_trace value(0,0,?)
+	</entry>
+
+	<!--查询trace行记录 (锁标记行work_id=0) -->
+	<entry key="SelectLockTraceLineForUpdate">
+		SELECT * FROM pushworks_trace WHERE work_id = 0 for update
+	</entry>
+
+	<entry key="PushworksList">
+		SELECT sw.cover_url as thumb , sw.work_name as name , sw.work_link as url ,
+		so.uid as uid
+		FROM service_work sw
+		inner join service_order so
+		on sw.order_id = so.order_id
+		WHERE sw = ?
+	</entry>
+
+	<entry key="InsertOrUpdatePushWorkTrace">
+		REPLACE into pushworks_trace value(?,?,?);
+	</entry>
+
+	<entry key="LockPushWorkTrace">
+		Lock pushworks_trace write;
+	</entry>
+
+	<entry key="UnlockPushWorkTrace">
+		UNLOCK pushworks_trace;
+	</entry>
+
+	<entry key="QueryTopicById">
+		select * from topic where topicId=?
+	</entry>
+
+	<!--查询小组更多话题 -->
+	<entry key="QueryGroupMoreTopics">
+		select t.* from topic t INNER JOIN event_group ev_g on
+		t.eventId=ev_g.eventId where ev_g.groupId=? ORDER BY t.createTime desc
+		LIMIT ?,?;
+	</entry>
+
+	<!--查询更多推荐小组 -->
+	<entry key="QueryMoreRecommendGroups">
+		select * from groups where recommend=? order by createTime desc limit ?,?;
+	</entry>
+
+	<!--查询话题更多观点(时间最近) -->
+	<entry key="QueryMorePointByTopicId">
+		select reply.*, vp.creatorId, vp.description from reply INNER JOIN (select * from view_point where topicId=?) vp
+		ON reply.replyId=vp.replyId order by reply.createTime desc limit ?,?;
+	</entry>
+
+	<!--查询话题更多热门观点 -->
+	<entry key="QueryMoreHotPointByTopicId">
+		SELECT reply.*,vp.creatorId,vp.description from reply INNER JOIN (select * from view_point where topicId=?) vp
+		ON reply.replyId=vp.replyId ORDER BY reply.zanCount desc limit ?,?;
+	</entry>
+
+	<!--查询观点更多热门回复 -->
+	<entry key="QueryMoreHotReplyByPointId">
+		SELECT reply.*, vp.description, vp.creatorId  FROM reply INNER JOIN (SELECT * from view_point where pointId=?) vp on reply.pointId=vp.pointId
+		ORDER BY reply.zanCount desc LIMIT ?,?;
+	</entry>
+
+	<!--查询观点更多最近回复 -->
+	<entry key="QueryMoreReplyByPointId">
+		SELECT reply.*, vp.description, vp.creatorId  FROM reply INNER JOIN (SELECT * from view_point where pointId=?) vp on reply.pointId=vp.pointId
+		ORDER BY reply.createTime desc LIMIT ?,?;
+	</entry>
+
+	<!--查询话题前n热门观点 -->
+	<entry key="QueryRankPointByTopicId">
+		SELECT reply.*,vp.creatorId,vp.description from reply INNER JOIN (select * from view_point where topicId=?) vp
+		ON reply.replyId=vp.replyId ORDER BY reply.zanCount desc limit ?,?;
+	</entry>
+	<!--select reply.*, vp.creatorId, vp.description from reply INNER JOIN (select * from view_point where topicId=?) vp-->
+	<!--ON reply.pointId=vp.pointId order by zanCount desc limit ?,?;-->
+
+	<!--查询观点更多证据 -->
+	<entry key="QueryMoreEvidenceByPriId">
+		select * from evidence where creatorId=? and pointId=? limit ?,?;
+	</entry>
+
+	<entry key="QueryMoreEvidenceByReplyId">
+		select * from evidence where replyId=? limit ?,?;
+	</entry>
+
+	<!--查询更多历史访问小组 -->
+	<entry key="QueryMoreHistoryGroups">
+		select * from history_group where userId=? order by lastVisitTime desc limit
+		?,?;
+	</entry>
+
+	<!--更新历史访问小组 -->
+	<entry key="InsertOrUpdateHistoryGroup">
+
+		replace into history_group values(?,?,?,?);
+	</entry>
+
+	<entry key="InsertOrUpdateUserInfo">
+		REPLACE into user_info(userId,openId, nick, icon, signature,
+		name,sex,tel,weixinNum,weixinPic,createTime) values(?,?,?,?,?,?,?,?,?,?,?);
+	</entry>
+
+
+    <!--查询小组热度关联小组-->
+    <entry key="QueryRelativeGroupByGroupId">
+        select groups.* from groups INNER JOIN (SELECT eg.* from event_group eg INNER JOIN (SELECT * from event_group where groupId = ?) ev
+            ON eg.eventId=ev.eventId GROUP BY groupId) gl where groups.groupId=gl.groupId and groups.enable=1 and groups.groupId != ?;
+    </entry>
+
+	<!--查询话题关联小组-->
+	<entry key="QueryRelativeGroupByTopicId">
+		select groups.* from groups INNER JOIN (SELECT * from event_group where eventId=?) eg ON eg.groupId=groups.groupId where groups.enable=1;
+	</entry>
+
+	<!--查询观点回复-->
+	<entry key="QueryReply">
+		select reply.*,vp.description from reply INNER JOIN (SELECT * FROM view_point where pointId=?) vp where reply.userId=?;
+	</entry>
+
+	<!--查询观点回复-->
+	<entry key="QueryReplyByReplyId">
+		select rep.*,vp.description from view_point vp INNER JOIN (SELECT * FROM reply where replyId=?) rep ON rep.pointId=vp.pointId;
+	</entry>
+
+	<!--查询某人回复是否点赞-->
+	<entry key="QueryZan">
+		SELECT * from reply_hot_req where replyId=? and userId=? and type=0;
+	</entry>
+
+	<!--查询某人回复是否点踩-->
+	<entry key="QueryCai">
+		SELECT * from reply_hot_req where replyId=? and userId=? and type=1;
+	</entry>
+
+	<!--对回复观点点赞-->
+	<entry key="UpdateZanReply">
+		update reply set zanCount=zanCount+? where replyId=?;
+	</entry>
+
+	<!--对回复观点点踩-->
+	<entry key="UpdateOpposeReply">
+		update reply set opposeCount=opposeCount+? where replyId=?;
+	</entry>
+
+	<!-- 查询事件 -->
+	<entry key="QueryEvent">
+		select * from event;
+	</entry>
+	
+	<!-- 查询话题 -->
+	<entry key="QueryTopic">
+		select * from topic;
+	</entry>
+	
+	<!-- 话题关联事件 -->
+	<entry key="ConnectEventTopic">
+		update topic set eventId = ? where topicId = ?;
+	</entry>
+	
+	
+	<!-- 查询小组 -->
+	<entry key="QueryGroups">
+		select * from groups;
+	</entry>
+	
+	<!-- 事件关联小组 -->
+	<entry key="ConnectEventGroup">
+		insert into event_group values(?,?);
+	</entry>
+	
+	<!-- 取消事件关联小组 -->
+	<entry key="CancelEventGroup">
+		delete from  event_group where eventId = ? and groupId = ?;
+	</entry>
+	
+	<!-- 查询所有事件（带已关联的小组） -->
+	<entry key="QueryEventGroupByEventId">
+		select * from event_group, groups where event_group.groupId =  groups.groupId and eventId = ?;
+	</entry>
+
+	<!-- 插入或更新回复 -->
+	<entry key="InsertOrUpdateReply">
+		INSERT INTO reply(userId,pointId,topicId,createTime) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE createTime=?;
+	</entry>
+</properties>
+
+
+
+
+
+
+
+

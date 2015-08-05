@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>util</short-name>
+    <uri>http://idol.yy.com/tag/util</uri>
+
+    <description>util library </description>
+    <function>
+        <name>text</name>
+        <function-class>com.yy.ent.commons.base.valid.StringUtil</function-class>
+        <function-signature>java.lang.String arrowFilter(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>quoteFilter</name>
+        <function-class>com.yy.ent.commons.base.valid.StringUtil</function-class>
+        <function-signature>java.lang.String filterQuotes(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>resDreamPath</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature>java.lang.String getResDreamPath()</function-signature>
+    </function>
+    <function>
+        <name>hashDreamPath</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature>java.lang.String getHashResDreamPath(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>resImgPath</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature>java.lang.String getResImgPath()</function-signature>
+    </function>
+    <function>
+        <name>hashImgPath</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature>java.lang.String getHashResImgPath(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>getAssembledUrl</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature>java.lang.String getAssembledUrl(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>getPhotoUrl</name>
+        <function-class>com.yy.ent.tvbar.common.util.PathUtil</function-class>
+        <function-signature> java.util.Map getPhotoUrl(java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>textOmitor</name>
+        <function-class>com.yy.ent.tvbar.common.util.CommonUtils</function-class>
+        <function-signature>java.lang.String textOmitor(java.lang.String,int,java.lang.String)</function-signature>
+    </function>
+    <tag>
+        <name>spilt</name>
+        <tag-class>com.yy.ent.tvbar.common.util.PagerHelper</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>pageIndex</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.Integer</type>
+        </attribute>
+        <attribute>
+            <name>count</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.Integer</type>
+        </attribute>
+        <attribute>
+            <name>pageSize</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.Integer</type>
+        </attribute>
+        <attribute>
+            <name>actionName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>displayNum</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.Integer</type>
+        </attribute>
+        <attribute>
+            <name>cssName</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+</taglib>

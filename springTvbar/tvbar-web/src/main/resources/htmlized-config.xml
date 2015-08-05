@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<htmlized>
+
+	<description>htmlized main</description>
+
+	<config>
+		<description>htmlized config</description>
+		<thread core="5" max="10"/>
+		<path>D:\yy-music\web-dragon\tvbar\tvbar-web\branches\develop\tvbar-web\src\main\webapp\static\html\</path>
+		<domain>http://tvbar.yy.com/tvbar</domain>
+		<timeout>10000</timeout>
+	</config>
+
+	<!--<schedule delay="10" period="10" stop="false" name="tvbar-data-forwardHome">-->
+		<!--<do from="/homePageHtml.action" to="home.html" name="tvbar-data-forwardHome" description="tvbar home" />-->
+	<!--</schedule>-->
+
+</htmlized>

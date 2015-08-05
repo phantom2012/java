@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="phoneServer_list">
+gossip.sysop.duowan.com:30303
+<!--183.136.136.166:30303-->
+</entry>
+<entry key="appid">36</entry>
+<entry key="appkey">yyentweb2014</entry>
+</properties>

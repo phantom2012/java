@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd"
+       default-lazy-init="true">
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="300"/>
+        <property name="maxIdle" value="300"/>
+        <property name="minIdle" value="200"/>
+        <property name="maxWaitMillis" value="5000"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+    </bean>
+
+    <bean id="writeJedisPoolMaster" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+        <constructor-arg name="host" value="${redis.default.write.host}"/>
+        <constructor-arg name="port" value="${redis.default.write.port}"/>
+        <constructor-arg name="timeout" value="${redis.default.write.timeout}"/>
+    </bean>
+
+    <bean id="writeJedisPoolManager" class="com.yy.ent.whistle.redis.JedisPoolManager">
+        <property name="jedisPools">
+            <list>
+                <ref bean="writeJedisPoolMaster"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="readJedisPoolMaster" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+        <constructor-arg name="host" value="${redis.default.read.host}"/>
+        <constructor-arg name="port" value="${redis.default.read.port}"/>
+        <constructor-arg name="timeout" value="${redis.default.read.timeout}"/>
+    </bean>
+
+    <bean id="readJedisPoolManager" class="com.yy.ent.whistle.redis.JedisPoolManager">
+        <property name="jedisPools">
+            <list>
+                <ref bean="readJedisPoolMaster"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

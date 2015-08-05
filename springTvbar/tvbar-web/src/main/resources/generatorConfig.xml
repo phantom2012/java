@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="C:\usr\synfile\_soft\m2\repository\mysql\mysql-connector-java\5.1.22\mysql-connector-java-5.1.22.jar"/>
+
+    <context id="default" targetRuntime="MyBatis3Simple">
+
+        <!--<plugin type="org.mybatis.generator.plugins.AddLimitOffsetPlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!-- optional，旨在创建class时，对注释进行控制 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+
+        <!--jdbc的数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://116.31.122.23:3306/tvbar" userId="tvbar" password="duowan">
+        </jdbcConnection>
+
+
+        <!-- java type resolver -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类
+            targetPackage     指定生成的model生成所在的包名
+            targetProject     指定在该项目下所在的路径
+        -->
+        <javaModelGenerator targetPackage="com.yy.ent.tvbar.common.model.domain" targetProject="../tvbar-common/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- gem sq1 map -->
+        <sqlMapGenerator targetPackage="." targetProject="../tvbar-dao/src/main/resources/sqlmappers">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- gem  mapper -->
+        <javaClientGenerator targetPackage="com.yy.ent.tvbar.dao.mapper" targetProject="../tvbar-dao/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="event">
+            <generatedKey column="eventId" sqlStatement="JDBC" />
+        </table>
+        <table tableName="event_group">
+            <!--<generatedKey column="eventId,groupId" sqlStatement="JDBC" />-->
+        </table>
+        <table tableName="evidence">
+        </table>
+        <table tableName="groups">
+        </table>
+        <table tableName="history_group">
+        </table>
+        <table tableName="image">
+        </table>
+        <table tableName="news">
+        </table>
+        <table tableName="reply">
+        </table>
+        <table tableName="reply_hot_req">
+        </table>
+        <table tableName="router">
+        </table>
+        <table tableName="text">
+        </table>
+        <table tableName="topic">
+            <generatedKey column="topicId" sqlStatement="JDBC" />
+        </table>
+        <table tableName="user_info">
+        </table>
+        <table tableName="video">
+        </table>
+        <table tableName="view_point">
+        </table>
+        <table tableName="voice">
+        </table>
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="t1"></div>
+    <div class="t2"></div>
+</body>
+<script type="text/javascript" src="http://res0.agency.yystatic.com/agency/??js/jquery/jquery.min.js,js/jquery/jquery.cookie.min.js,js/jquery/jquery.url.min.js,js/commons/jquery-ext.js,js/commons/login.js,js/commons/common-util.js,js/commons/date-util.js"></script>
+<script>
+    /**
+     * currentFansCnt : 当前总粉丝数
+     * currentVoteCnt ：当前总的投票数
+     * freeTicketCnt  ：
+     * {"data":{"actid":19320001,"currentFansCnt":"10","currentVoteCnt":"20","freeTicketCnt":"50","fund":"30","hasVoteCnt":"40","agency":"1","agencyZcUrl":"test","subSid":69753215,"topSid":69753215},"keyName":"PKInfo","status":4}
+     * 广播
+     */
+    function refreshAct(json){
+        $("div.t1").text(json);
+    }
+
+    /**
+     * 透传
+     */
+    function resultToWeb(json){
+        $("div.t2").text(json);
+    }
+</script>
+</html>
